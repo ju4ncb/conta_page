@@ -7,7 +7,7 @@ function Page() {
   const { usuario } = useData<Data>();
   return (
     <>
-      <h1>Holas {usuario.nombre === null ? "Cachon" : usuario.nombre}</h1>
+      <h1>Hola {usuario.nombre === null ? "Cachon" : usuario.nombre}</h1>
       Nombre de usuario: {usuario.username}
       <br />
       Contraseña: {usuario.contrasena}

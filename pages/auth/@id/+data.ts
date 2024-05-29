@@ -36,7 +36,7 @@ const data = async (pageContext: PageContextServer) => {
   return {
     usuario: usuarioData,
     // titulo de la pag
-    title: "todos me pelan la monda",
+    title: "sapos todos",
   };
 };
 

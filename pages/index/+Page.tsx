@@ -1,18 +1,18 @@
-export { Page }
+export { Page };
 
-import { Counter } from './Counter'
+import { Counter } from "./Counter";
 
 function Page() {
   return (
     <>
-      <h1>Welcome</h1>
-      This page is:
+      <h1>Pagina de test</h1>
+      No te burles aun q no he decorado nada JAJAJAJJAJAJ
       <ul>
         <li>Rendered to HTML.</li>
         <li>
-          Interactive. <Counter />
+          Contador. <Counter />
         </li>
       </ul>
     </>
-  )
+  );
 }
