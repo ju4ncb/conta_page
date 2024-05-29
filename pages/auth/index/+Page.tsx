@@ -16,7 +16,7 @@ function Page() {
           </li>
         ))}
       </ol>
-      <p>La mala para donaldo</p>
+      <p>La mala para donaldo y julio</p>
       <p>
         Data can be fetched by using the <code>data()</code> hook.
       </p>
