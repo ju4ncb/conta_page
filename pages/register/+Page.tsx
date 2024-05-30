@@ -1,10 +1,10 @@
 export default Page;
 
-import { useData } from "../../../renderer/useData";
+import { useData } from "../../renderer/useData";
 import type { Data } from "./+data";
-import { Form, ButtonItem, FormInput } from "../../../components/Form";
-import { useEffect, useState } from "react";
-import Home from "../../../components/Home";
+import { Form, ButtonItem, FormInput } from "../../components/Form";
+import { useState, useEffect } from "react";
+import Home from "../../components/Home";
 
 function Page() {
   useEffect(() => {
@@ -13,33 +13,36 @@ function Page() {
       window.location.href = "/";
     }
   }, []);
+
   useData<Data>();
   const [errMessage, setErrMessage] = useState("");
 
-  async function handleSubmit(us: string, pas: string) {
+  async function handleSubmit(
+    us: string,
+    pas: string,
+    cor: string,
+    nm: string,
+    ap: string
+  ) {
     try {
       console.log(us);
-      const respuesta = await fetch("/get-table", {
+      const respuesta = await fetch("/insert-table", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           tabla: "Usuarios",
-          columnas: "nombre, apellido, correo, username, contrasena, id_us",
-          condicion: 'username = "' + us + '"',
+          columnas: ["username", "contrasena", "correo", "nombre", "apellido"],
+          values: [us, pas, cor, nm, ap],
         }),
       });
-      const resultado = await respuesta.json();
+      const resultado = await respuesta.text();
 
-      if (resultado.resultados.length == 0) {
-        setErrMessage("Usuario no existe");
-      } else if (pas != resultado.resultados[0].contrasena) {
-        setErrMessage("Intente de nuevo");
+      if (resultado != "Values inserted") {
+        setErrMessage(resultado);
       } else {
-        localStorage.setItem("user", JSON.stringify(resultado.resultados[0]));
-        console.log(localStorage.getItem("user"));
-        window.location.href = "/dashboard";
+        window.location.href = "/auth";
       }
 
       // Actualiza el estado o realiza acciones con los resultados
@@ -53,16 +56,22 @@ function Page() {
       <Home />
       <Form
         onSubmitForm={(atributes) => {
-          handleSubmit(atributes[0], atributes[1]);
+          handleSubmit(
+            atributes[0],
+            atributes[1],
+            atributes[2],
+            atributes[3],
+            atributes[4]
+          );
         }}
         buttons={
           [
-            { content: "Ingresar", function: () => {}, isSubmit: true },
+            { content: "Registrarse", function: () => {}, isSubmit: true },
             {
-              content: "Registrarse",
+              content: "Iniciar sesión",
               function: (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
                 event.preventDefault();
-                window.location.href = "/register";
+                window.location.href = "/auth";
               },
               isSubmit: false,
             },
@@ -76,6 +85,14 @@ function Page() {
               maxChar: 20,
               desc: "Contraseña",
               name: "contrasena",
+            },
+            { hideChar: false, maxChar: 100, desc: "Correo", name: "correo" },
+            { hideChar: false, maxChar: 50, desc: "Nombre", name: "nombre" },
+            {
+              hideChar: false,
+              maxChar: 50,
+              desc: "Apellido",
+              name: "apellido",
             },
           ] as FormInput[]
         }

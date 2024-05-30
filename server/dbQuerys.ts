@@ -64,7 +64,7 @@ export const selectQuery = async (
     } else {
       query = `
         SELECT ${columns} FROM ${tableName}
-        WHERE (${condition});
+        WHERE ${condition};
       `;
     }
     // Provide actual values for your columns

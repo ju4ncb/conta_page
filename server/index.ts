@@ -48,9 +48,16 @@ async function startServer() {
 
   // Pon los metodos GET y POST acá
 
+  app.use(express.json());
+
   app.post("/get-table", (req, res) => {
     const { tabla, columnas, condicion } = req.body;
     selectQuery(tabla, columnas, condicion, res);
+  });
+
+  app.post("/insert-table", (req, res) => {
+    const { tabla, columnas, values } = req.body;
+    insertQuery(tabla, columnas, values, res);
   });
 
   // ...

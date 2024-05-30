@@ -1,18 +1,47 @@
+import { useEffect, useState } from "react";
+import { NavBar, NavOption } from "../../components/NavBar";
+
 export { Page };
 
-import { Counter } from "./Counter";
-
 function Page() {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const userJson = localStorage.getItem("user");
+    setUser(userJson !== null ? JSON.parse(userJson) : {});
+  }, []);
   return (
     <>
-      <h1>Pagina de test</h1>
-      No te burles aun q no he decorado nada JAJAJAJJAJAJ
-      <ul>
-        <li>Rendered to HTML.</li>
-        <li>
-          Contador. <Counter />
-        </li>
-      </ul>
+      <Header>
+        <NavBar>
+          <NavOption
+            handleClick={(e: React.MouseEvent<HTMLElement>) => {
+              e.preventDefault();
+              if (JSON.stringify(user) === "{}") {
+                window.location.href = "/auth";
+              } else {
+                localStorage.removeItem("user");
+                window.location.href = "/";
+              }
+            }}
+          >
+            {JSON.stringify(user) === "{}" ? "Iniciar sesion" : "Cerrar sesion"}
+          </NavOption>
+          {JSON.stringify(user) === "{}" ? undefined : (
+            <NavOption
+              handleClick={(e: React.MouseEvent<HTMLElement>) => {
+                e.preventDefault();
+                window.location.href = "/dashboard";
+              }}
+            >
+              <i className="bi bi-person-fill" style={{ fontSize: 30 }} />
+            </NavOption>
+          )}
+        </NavBar>
+      </Header>
     </>
   );
+}
+
+function Header({ children }: { children: React.ReactNode }) {
+  return <div className="header_home">{children}</div>;
 }

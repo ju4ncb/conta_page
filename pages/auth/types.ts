@@ -1,11 +1,11 @@
-export type Usuario = UsuarioReducido & {
-  nombre: string;
-  apellido: string;
+export type UsuarioReducido = {
+  id_us: string;
+  username: string;
   contrasena: string;
-  correo: string;
 };
 
-export type UsuarioReducido = {
-  id: string;
-  username: string;
+export type Usuario = UsuarioReducido & {
+  nombre: string;
+  correo: string;
+  apellido: string;
 };
