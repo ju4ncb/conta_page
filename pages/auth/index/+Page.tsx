@@ -4,6 +4,7 @@ import { useData } from "../../../renderer/useData";
 import type { Data } from "./+data";
 import { Form, ButtonItem, FormInput } from "../../../components/Form";
 import { useEffect, useState } from "react";
+import loginImage from "../../../renderer/images/login.jpg";
 import Home from "../../../components/Home";
 
 function Page() {
@@ -51,36 +52,50 @@ function Page() {
   return (
     <div className="auth_body">
       <Home />
-      <Form
-        onSubmitForm={(atributes) => {
-          handleSubmit(atributes[0], atributes[1]);
-        }}
-        buttons={
-          [
-            { content: "Ingresar", function: () => {}, isSubmit: true },
-            {
-              content: "Registrarse",
-              function: (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-                event.preventDefault();
-                window.location.href = "/register";
+      <div className="auth-container">
+        <Form
+          onSubmitForm={(atributes) => {
+            handleSubmit(atributes[0], atributes[1]);
+          }}
+          buttons={
+            [
+              { content: "Ingresar", function: () => {}, isSubmit: true },
+              {
+                content: "Registrarse",
+                function: (
+                  event: React.MouseEvent<HTMLElement, MouseEvent>
+                ) => {
+                  event.preventDefault();
+                  window.location.href = "/register";
+                },
+                isSubmit: false,
               },
-              isSubmit: false,
-            },
-          ] as ButtonItem[]
-        }
-        formInputs={
-          [
-            { hideChar: false, maxChar: 20, desc: "Usuario", name: "username" },
-            {
-              hideChar: true,
-              maxChar: 20,
-              desc: "Contraseña",
-              name: "contrasena",
-            },
-          ] as FormInput[]
-        }
-        errorMessage={errMessage}
-      />
+            ] as ButtonItem[]
+          }
+          formInputs={
+            [
+              {
+                hideChar: false,
+                maxChar: 20,
+                minChar: 4,
+                required: true,
+                desc: "Usuario",
+                name: "username",
+              },
+              {
+                hideChar: true,
+                maxChar: 20,
+                minChar: 4,
+                required: true,
+                desc: "Contraseña",
+                name: "contrasena",
+              },
+            ] as FormInput[]
+          }
+          errorMessage={errMessage}
+        />
+        <img src={loginImage} alt="" />
+      </div>
     </div>
   );
 }

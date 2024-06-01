@@ -6,7 +6,14 @@ interface Props {
 }
 
 export const NavBar = ({ children }: { children: React.ReactNode }) => {
-  return <div className="nav_home">{children}</div>;
+  return (
+    <div className="nav_home">
+      {children}
+      <a href="/" className="logo">
+        Conta
+      </a>
+    </div>
+  );
 };
 
 export const NavOption = ({ handleClick, children }: Props) => {

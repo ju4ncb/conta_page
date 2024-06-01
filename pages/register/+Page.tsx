@@ -4,6 +4,7 @@ import { useData } from "../../renderer/useData";
 import type { Data } from "./+data";
 import { Form, ButtonItem, FormInput } from "../../components/Form";
 import { useState, useEffect } from "react";
+import loginImage from "../../renderer/images/login.jpg";
 import Home from "../../components/Home";
 
 function Page() {
@@ -54,50 +55,80 @@ function Page() {
   return (
     <div className="auth_body">
       <Home />
-      <Form
-        onSubmitForm={(atributes) => {
-          handleSubmit(
-            atributes[0],
-            atributes[1],
-            atributes[2],
-            atributes[3],
-            atributes[4]
-          );
-        }}
-        buttons={
-          [
-            { content: "Registrarse", function: () => {}, isSubmit: true },
-            {
-              content: "Iniciar sesión",
-              function: (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-                event.preventDefault();
-                window.location.href = "/auth";
+      <div className="auth-container">
+        <Form
+          onSubmitForm={(atributes) => {
+            handleSubmit(
+              atributes[0],
+              atributes[1],
+              atributes[2],
+              atributes[3],
+              atributes[4]
+            );
+          }}
+          buttons={
+            [
+              { content: "Registrarse", function: () => {}, isSubmit: true },
+              {
+                content: "Iniciar sesión",
+                function: (
+                  event: React.MouseEvent<HTMLElement, MouseEvent>
+                ) => {
+                  event.preventDefault();
+                  window.location.href = "/auth";
+                },
+                isSubmit: false,
               },
-              isSubmit: false,
-            },
-          ] as ButtonItem[]
-        }
-        formInputs={
-          [
-            { hideChar: false, maxChar: 20, desc: "Usuario", name: "username" },
-            {
-              hideChar: true,
-              maxChar: 20,
-              desc: "Contraseña",
-              name: "contrasena",
-            },
-            { hideChar: false, maxChar: 100, desc: "Correo", name: "correo" },
-            { hideChar: false, maxChar: 50, desc: "Nombre", name: "nombre" },
-            {
-              hideChar: false,
-              maxChar: 50,
-              desc: "Apellido",
-              name: "apellido",
-            },
-          ] as FormInput[]
-        }
-        errorMessage={errMessage}
-      />
+            ] as ButtonItem[]
+          }
+          formInputs={
+            [
+              {
+                hideChar: false,
+                maxChar: 20,
+                minChar: 4,
+                required: true,
+                desc: "Usuario (*) ",
+                name: "username",
+              },
+              {
+                hideChar: true,
+                maxChar: 20,
+                minChar: 4,
+                required: true,
+                desc: "Contraseña (*) ",
+                name: "contrasena",
+              },
+              {
+                hideChar: false,
+                maxChar: 100,
+                minChar: 0,
+                required: false,
+                desc: "Correo (*) ",
+                name: "correo",
+              },
+              {
+                hideChar: false,
+                maxChar: 50,
+                minChar: 0,
+                required: false,
+                desc: "Nombre",
+                name: "nombre",
+              },
+              {
+                hideChar: false,
+                maxChar: 50,
+                minChar: 0,
+                required: false,
+                desc: "Apellido",
+                name: "apellido",
+              },
+            ] as FormInput[]
+          }
+          errorMessage={errMessage}
+        />
+        <img src={loginImage} alt="" />
+      </div>
     </div>
   );
 }

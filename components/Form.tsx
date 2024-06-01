@@ -10,7 +10,9 @@ export type FormInput = {
   desc: string;
   name: string;
   maxChar: number;
+  minChar: number;
   hideChar: boolean;
+  required: boolean;
 };
 
 interface Props {
@@ -39,18 +41,22 @@ export const Form = ({
     onSubmitForm(inputs);
   }
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      {formInputs.map(({ desc, name, maxChar, hideChar }, index) => (
-        <FormInput
-          key={index}
-          formInput={{ desc, name, maxChar, hideChar } as FormInput}
-          onChangeInput={(n) => {
-            let tempArray = inputs;
-            tempArray[index] = n;
-            setInputs(tempArray);
-          }}
-        ></FormInput>
-      ))}
+    <form onSubmit={handleSubmit} autoComplete="off" className="auth-form">
+      {formInputs.map(
+        ({ desc, name, maxChar, minChar, hideChar, required }, index) => (
+          <FormInput
+            key={index}
+            formInput={
+              { desc, name, maxChar, minChar, hideChar, required } as FormInput
+            }
+            onChangeInput={(n) => {
+              let tempArray = inputs;
+              tempArray[index] = n;
+              setInputs(tempArray);
+            }}
+          ></FormInput>
+        )
+      )}
       <div className="button_space" key="1">
         {buttons.map(({ function: f, isSubmit, content }, index) => (
           <button
@@ -72,10 +78,13 @@ export const FormInput = ({ formInput, onChangeInput }: InputProps) => {
     <label>
       {formInput.desc}:
       <input
+        className="auth-input"
         type={formInput.hideChar ? "password" : "text"}
         name={formInput.name}
         maxLength={formInput.maxChar}
+        minLength={formInput.minChar}
         onChange={(event) => onChangeInput(event.target.value)}
+        required={formInput.required}
       />
     </label>
   );
