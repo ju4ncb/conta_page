@@ -110,7 +110,7 @@ input:-webkit-autofill:active {
 .header-content p {
   font-size: 22px;
   font-weight: bold;
-  color: #1e2530;
+  color: lightgreen;
   text-shadow: #00bf63 1.5px 1.5px;
   padding: 0 250px;
   margin-bottom: 25px;

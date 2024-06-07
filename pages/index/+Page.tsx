@@ -32,9 +32,18 @@ function Page() {
               }
             }}
           >
-            {JSON.stringify(user) === "{}" ? "Iniciar sesion" : "Cerrar sesion"}
+            {JSON.stringify(user) === "{}" ? "Iniciar sesión" : "Cerrar sesión"}
           </NavOption>
-          {JSON.stringify(user) === "{}" ? undefined : (
+          {JSON.stringify(user) === "{}" ? (
+            <NavOption
+              handleClick={(e: React.MouseEvent<HTMLElement>) => {
+                e.preventDefault();
+                window.location.href = "/register";
+              }}
+            >
+              Registrarse
+            </NavOption>
+          ) : (
             <NavOption
               handleClick={(e: React.MouseEvent<HTMLElement>) => {
                 e.preventDefault();
