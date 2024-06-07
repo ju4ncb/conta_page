@@ -5,3 +5,11 @@ export type Bolsillo = {
   nombre: string;
   descripcion: string;
 };
+
+export type Movimiento = {
+  id_mo: number;
+  id_bo: number;
+  monto: number;
+  descripcion: string;
+  fecha: string;
+};

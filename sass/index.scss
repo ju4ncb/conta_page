@@ -420,8 +420,6 @@ input:-webkit-autofill:active {
   justify-content: center;
   background: rgba(darken($color1, 5%), 96%);
   padding: 50px;
-  padding-left: 100px;
-  padding-right: 100px;
   label {
     display: flex;
     flex-direction: column;
@@ -575,6 +573,7 @@ input:-webkit-autofill:active {
     flex-direction: column;
     color: $color2;
     width: 200px;
+    height: 200px;
     .title__m {
       align-self: center;
       font-size: 24px;
@@ -672,6 +671,7 @@ input:-webkit-autofill:active {
   overflow: hidden;
   flex-direction: column;
   width: 70%;
+  max-height: 90%;
   background-color: lighten($color1, 20%);
   border-radius: 20px;
   .titulo {
@@ -702,10 +702,67 @@ input:-webkit-autofill:active {
     }
     .movimientos {
       background-color: lighten($color1, 12%);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
       p {
-        margin: 20px;
+        background-color: lighten($color1, 10%);
+        margin: 0px;
+        padding: 10px;
         font-size: 25px;
+      }
+      h3 {
+        background-color: lighten($color1, 18%);
+        text-align: center;
+        margin: 0px;
+        font-size: 30px;
       }
     }
   }
+}
+
+// Css perfil
+
+.buttonModal {
+  cursor: pointer;
+  background-color: #00ff22;
+  margin: 10px;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: $color1;
+  font-size: 18px;
+  padding: 10px 25px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonModal:hover {
+  background-color: #7aff8c;
+}
+.modal-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.modal {
+  background-color: #283140;
+  width: 1000px;
+  max-width: 100%;
+  padding: 50px 70px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal p {
+  user-select: none;
+  opacity: 0.7;
+  font-size: 40px;
+  align-items: center;
 }

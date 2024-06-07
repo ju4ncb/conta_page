@@ -12,6 +12,6 @@ import type { PageContextServer } from "vike/types";
 const data = async (pageContext: PageContextServer) => {
   return {
     // The page's <title>
-    title: `Perfil`,
+    title: `Seguridad`,
   };
 };

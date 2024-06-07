@@ -5,6 +5,7 @@ import { Usuario } from "../pages/auth/types";
 export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
   const [modalActive, setModalActive] = useState(false);
   const [errMessage, setErrMessage] = useState("");
+
   async function handleSubmit(nm: string, din: string, desc: string) {
     const userJson = localStorage.getItem("user");
     if (userJson != null) {
@@ -27,13 +28,30 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
         if (resultado != "Values inserted") {
           setErrMessage(resultado);
         } else {
-          window.location.href = "/dashboard/bolsillos";
+          const respuesta2 = await fetch("/insert-movimiento", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              nombre: nm,
+              dinero: din,
+            }),
+          });
+          const resultado2 = await respuesta2.text();
+
+          if (resultado2 != "Values inserted") {
+            setErrMessage(resultado2);
+          } else {
+            window.location.href = "/dashboard/bolsillos";
+          }
         }
       } catch (error) {
         console.error("Error al enviar los datos:", error);
       }
     }
   }
+
   function toggleModal() {
     if (modalActive === false) {
       setModalActive(true);
@@ -41,6 +59,7 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
       setModalActive(false);
     }
   }
+
   return (
     <>
       <section className="bolsillos-container">

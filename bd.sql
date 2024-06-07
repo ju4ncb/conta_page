@@ -42,6 +42,7 @@ CREATE TABLE Bolsillos(
     nombre VARCHAR(30) NOT NULL,
     descripcion VARCHAR(200),
     CONSTRAINT Bolsillos_PK PRIMARY KEY(id_bo),
+    CONSTRAINT Bolsillos_UN UNIQUE(nombre),
     CONSTRAINT Usuarios_Bolsillos_FK FOREIGN KEY(id_us) REFERENCES Usuarios(id_us)
 );
 
@@ -57,13 +58,13 @@ CREATE TABLE Movimientos(
     CONSTRAINT Movimientos_Bolsillos_FK FOREIGN KEY(id_bo) REFERENCES Bolsillos(id_bo)
 );
 
-INSERT INTO Usuarios (username, contrasena, correo) VALUES ('haiver', 'haiver123', 'haiver@mail.com');
+INSERT INTO Usuarios (username, contrasena, correo, nombre, apellido) VALUES ('zent', 'lamalapadonaldo', 'juan@mail.com', 'Juan', 'Caballero');
 
 SELECT * FROM Usuarios;
 
 INSERT INTO Bolsillos (id_us, dinero, nombre) VALUES(1, 3000.1, 'Billar');
 
-SELECT U.username, B.dinero FROM Bolsillos B INNER JOIN Usuarios U ON B.id_us = 1;
+SELECT U.username, B.dinero, B.id_bo FROM Bolsillos B INNER JOIN Usuarios U ON B.id_us = 1;
 
 INSERT INTO Movimientos (id_bo, monto) VALUES(1, 500);
 

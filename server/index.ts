@@ -15,7 +15,14 @@ import express from "express";
 import compression from "compression";
 import { renderPage } from "vike/server";
 import { root } from "./root.js";
-import { insertQuery, selectQuery } from "./dbQuerys.js";
+import {
+  deleteQuery,
+  insertQuery,
+  insertMovimiento,
+  selectQuery,
+  updateBolsillo,
+  updateUsuario,
+} from "./dbQuerys.js";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -50,6 +57,16 @@ async function startServer() {
 
   app.use(express.json());
 
+  app.post("/update-bolsillo", (req, res) => {
+    const { id_bo, dinero } = req.body;
+    updateBolsillo(id_bo, dinero, res);
+  });
+
+  app.post("/update-usuario", (req, res) => {
+    const { id_us, valor, columna } = req.body;
+    updateUsuario(id_us, valor, columna, res);
+  });
+
   app.post("/get-table", (req, res) => {
     const { tabla, columnas, condicion } = req.body;
     selectQuery(tabla, columnas, condicion, res);
@@ -58,6 +75,16 @@ async function startServer() {
   app.post("/insert-table", (req, res) => {
     const { tabla, columnas, values } = req.body;
     insertQuery(tabla, columnas, values, res);
+  });
+
+  app.post("/insert-movimiento", (req, res) => {
+    const { nombre, dinero } = req.body;
+    insertMovimiento(nombre, dinero, res);
+  });
+
+  app.post("/delete-table", (req, res) => {
+    const { tabla, condicion } = req.body;
+    deleteQuery(tabla, condicion, res);
   });
 
   // ...
