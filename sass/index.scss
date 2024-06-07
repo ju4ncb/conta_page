@@ -594,37 +594,38 @@ input:-webkit-autofill:active {
   }
 
   .d-services__cuadros {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
     height: 150px;
-    background-color: #ffcc00;
+    background-color: #ddb100;
     color: #333;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
-    transition: background-color 0.3s;
-    a {
-      color: #333;
+    transition: filter 0.3s;
+    p {
+      color: white;
       text-decoration: none;
     }
   }
 
   .d-services__cuadros:nth-child(2) {
-    background-color: #66ccff;
+    background-color: #00aaff;
   }
 
   .d-services__cuadros:nth-child(3) {
-    background-color: #ff6666;
+    background-color: #ff3f3f;
   }
 
   .d-services__cuadros:nth-child(4) {
-    background-color: #66ff7a;
+    background-color: #00ff22;
   }
 
   .d-services__cuadros:hover {
-    background-color: #ff9900;
+    filter: brightness(70%);
   }
 }

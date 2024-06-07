@@ -14,6 +14,7 @@ export const SideBar = ({
         <img
           className="sidebar-logo"
           src={icon}
+          alt=""
           onClick={() => {
             window.location.href = "/";
           }}
@@ -24,6 +25,16 @@ export const SideBar = ({
   );
 };
 
-export const SideBarOption = ({ children }: { children: React.ReactNode }) => {
-  return <div className="sidebar-option">{children}</div>;
+export const SideBarOption = ({
+  children,
+  handleClick,
+}: {
+  children: React.ReactNode;
+  handleClick(): void;
+}) => {
+  return (
+    <div className="sidebar-option" onClick={handleClick}>
+      {children}
+    </div>
+  );
 };

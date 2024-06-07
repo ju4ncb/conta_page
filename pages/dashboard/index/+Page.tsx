@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Footer from "../../../components/Footer";
 import DashboardLayout from "../../../components/DashboardLayout";
 import { useData } from "../../../renderer/useData";
 import type { Data } from "./+data";
@@ -19,15 +18,19 @@ function Page() {
   return (
     <DashboardLayout>
       <SideBar isBack={false}>
-        <SideBarOption>
+        <SideBarOption
+          handleClick={() => {
+            window.location.href = "/dashboard/perfil";
+          }}
+        >
           <i className="bi bi-person" />
           <p>Mi perfil</p>
         </SideBarOption>
-        <SideBarOption>
+        <SideBarOption handleClick={() => {}}>
           <i className="bi bi-journals" />
           <p>Bolsillos</p>
         </SideBarOption>
-        <SideBarOption>
+        <SideBarOption handleClick={() => {}}>
           <i className="bi bi-card-list" />
           <p>Movimientos</p>
         </SideBarOption>
@@ -41,19 +44,19 @@ function Page() {
           </div>
           <section className="d-services">
             <div className="d-services__cuadros">
-              <a href="#">Mis pagos</a>
+              <p>Mis pagos</p>
             </div>
 
             <div className="d-services__cuadros">
-              <a href="#">Mis bolsillos</a>
+              <p>Mis bolsillos</p>
             </div>
 
             <div className="d-services__cuadros">
-              <a href="#">Cerrar sesión</a>
+              <p>Cerrar sesión</p>
             </div>
 
             <div className="d-services__cuadros">
-              <a href="#">Configuracion</a>
+              <p>Configuracion</p>
             </div>
           </section>
         </section>
