@@ -86,8 +86,13 @@ function Page() {
             <p className="p__dinero">${dineroDisponible}</p>
           </div>
           <section className="d-services">
-            <div className="d-services__cuadros">
-              <p>Mis pagos</p>
+            <div
+              className="d-services__cuadros"
+              onClick={() => {
+                alert("Pronto habilitaremos esta opción!");
+              }}
+            >
+              <p style={{ textAlign: "center" }}>Mis subscripciones</p>
             </div>
 
             <div

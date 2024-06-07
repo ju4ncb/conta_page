@@ -6,6 +6,8 @@ import icon3 from "../../renderer/images/icon3.png";
 import dinero from "../../renderer/images/dinero.jpg";
 import c2 from "../../renderer/images/c2.jpg";
 import Footer from "../../components/Footer";
+import tablet from "../../renderer/images/tablet.jpg";
+import seguridad from "../../renderer/images/seguridad.jpg";
 
 export { Page };
 
@@ -82,8 +84,11 @@ function Conta() {
             bolsillo, donde podras administrar tus gastos.
           </ContaBox>
 
-          <ContaBox title="Titulo 3" img={dinero}>
-            Coman mierda todos
+          <ContaBox title="Seguridad y Confianza" img={seguridad}>
+            Nos tomamos muy en serio la seguridad de tu información. Nuestra app
+            utiliza encriptación avanzada para proteger tus datos personales y
+            financieros. Puedes estar tranquilo sabiendo que tus datos están
+            seguros con nosotros.
           </ContaBox>
         </div>
       </div>

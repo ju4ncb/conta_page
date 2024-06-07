@@ -56,7 +56,26 @@ function Page() {
           <p>Eliminar cuenta</p>
         </SideBarOption>
       </SideBar>
-      <main className="dash-content" style={{ flex: 4 }}></main>
+      <main className="dash-content" style={{ flex: 4 }}>
+        <section className="info-perfil">
+          <div className="info-perfil__cuadros">
+            <h4>Nombres:</h4>
+            <p>{usuario.nombre}</p>
+          </div>
+          <div className="info-perfil__cuadros">
+            <h4>Apellidos:</h4>
+            <p>{usuario.apellido}</p>
+          </div>
+          <div className="info-perfil__cuadros">
+            <h4>Usuario:</h4>
+            <p>{usuario.username}</p>
+          </div>
+          <div className="info-perfil__cuadros">
+            <h4>Correo:</h4>
+            <p>{usuario.correo}</p>
+          </div>
+        </section>
+      </main>
       {modalActive && (
         <main className="modal-container">
           <main className="modal">

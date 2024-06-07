@@ -90,7 +90,7 @@ function Page() {
           }}
         >
           <i className="bi bi-journal-plus" />
-          <p>Dinero</p>
+          <p>Nuevo movimiento</p>
         </SideBarOption>
         <SideBarOption
           handleClick={async () => {
@@ -134,7 +134,7 @@ function Page() {
           <p>Eliminar</p>
         </SideBarOption>
       </SideBar>
-      <main className="dash-content">
+      <main className="dash-content" style={{ flex: 3.5 }}>
         <section className="bolsillo-extendido">
           <div className="titulo">
             <h1>{bolsillo.nombre}</h1>
