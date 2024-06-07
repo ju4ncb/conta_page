@@ -9,7 +9,24 @@ export const SideBar = ({
 }) => {
   return (
     <div className="sidebar-container">
-      {isBack ? <i className="bi bi-chevron-left go-back" /> : undefined}
+      {isBack ? (
+        <i
+          className="bi bi-chevron-left go-back"
+          onClick={() => {
+            let href = window.location.href;
+            let len = href.length - 1;
+            while (len >= 0) {
+              let element = href.charAt(len - 1);
+              href = href.slice(0, len - 1);
+              if (element == "/") {
+                break;
+              }
+              len--;
+            }
+            window.location.href = href;
+          }}
+        />
+      ) : undefined}
       <div className="sidebar-options">
         <img
           className="sidebar-logo"

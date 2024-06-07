@@ -16,6 +16,7 @@ export type FormInput = {
 };
 
 interface Props {
+  additionalClass?: string;
   formInputs: FormInput[];
   buttons: ButtonItem[];
   errorMessage: string;
@@ -28,6 +29,7 @@ interface InputProps {
 }
 
 export const Form = ({
+  additionalClass,
   formInputs,
   buttons,
   errorMessage,
@@ -41,7 +43,11 @@ export const Form = ({
     onSubmitForm(inputs);
   }
   return (
-    <form onSubmit={handleSubmit} autoComplete="off" className="auth-form">
+    <form
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      className={"auth-form " + additionalClass}
+    >
       {formInputs.map(
         ({ desc, name, maxChar, minChar, hideChar, required }, index) => (
           <FormInput

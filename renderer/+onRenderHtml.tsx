@@ -32,7 +32,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (
   const desc =
     pageContext.data?.description ||
     pageContext.config.description ||
-    "Demo of using Vike";
+    "Dinero dinero dinero aprende algo dinero";
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">

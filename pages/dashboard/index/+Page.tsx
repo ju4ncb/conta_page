@@ -29,11 +29,19 @@ function Page() {
           <i className="bi bi-person" />
           <p>Mi perfil</p>
         </SideBarOption>
-        <SideBarOption handleClick={() => {}}>
+        <SideBarOption
+          handleClick={() => {
+            window.location.href = "/dashboard/bolsillos";
+          }}
+        >
           <i className="bi bi-journals" />
           <p>Bolsillos</p>
         </SideBarOption>
-        <SideBarOption handleClick={() => {}}>
+        <SideBarOption
+          handleClick={() => {
+            window.location.href = "/dashboard/movimientos";
+          }}
+        >
           <i className="bi bi-card-list" />
           <p>Movimientos</p>
         </SideBarOption>

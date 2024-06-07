@@ -452,6 +452,11 @@ input:-webkit-autofill:active {
   }
 }
 
+.fixed {
+  position: fixed;
+  border-radius: 40px;
+}
+
 .auth-input {
   background: $color1;
   color: white;
@@ -628,5 +633,79 @@ input:-webkit-autofill:active {
 
   .d-services__cuadros:hover {
     filter: brightness(70%);
+  }
+}
+
+// Bolsillos
+
+.bolsillos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 2px;
+}
+
+.bolsillo {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: $color2;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  p {
+    font-size: 20px;
+    color: $color1;
+  }
+}
+
+.bolsillo:hover {
+  background-color: darken($color2, 10%);
+}
+
+.bolsillo-extendido {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 70%;
+  background-color: lighten($color1, 20%);
+  border-radius: 20px;
+  .titulo {
+    background-color: $color2;
+    text-align: center;
+    h1 {
+      color: lighten($color1, 12%);
+      font-size: 30px;
+    }
+  }
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .descripcion {
+      background-color: lighten($color1, 12%);
+      p {
+        margin: 20px;
+        font-size: 20px;
+      }
+    }
+    .balance {
+      background-color: lighten($color1, 12%);
+      p {
+        margin: 20px;
+        font-size: 25px;
+      }
+    }
+    .movimientos {
+      background-color: lighten($color1, 12%);
+      p {
+        margin: 20px;
+        font-size: 25px;
+      }
+    }
   }
 }
