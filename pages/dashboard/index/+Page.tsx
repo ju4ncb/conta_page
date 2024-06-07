@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import DashboardLayout from "../../../components/DashboardLayout";
 import { useData } from "../../../renderer/useData";
 import type { Data } from "./+data";
@@ -7,13 +7,16 @@ import { SideBar, SideBarOption } from "../../../components/SideBar";
 export default Page;
 
 function Page() {
+  useData<Data>();
+  const [nombreUsuario, setNombreUsuario] = useState("");
   useEffect(() => {
     const userJson = localStorage.getItem("user");
     if (userJson === null) {
       window.location.href = "/";
+    } else {
+      setNombreUsuario(JSON.parse(userJson).nombre);
     }
   }, []);
-  useData<Data>();
 
   return (
     <DashboardLayout>
@@ -38,7 +41,7 @@ function Page() {
       <main className="dash-content">
         <section className="hero__principal">
           <div className="monto">
-            <h2 className="title__m">Hola! {}</h2>
+            <h2 className="title__m">Hola! {nombreUsuario}</h2>
             <h2 className="title_monto">Disponible</h2>
             <p className="p__dinero">$1000</p>
           </div>

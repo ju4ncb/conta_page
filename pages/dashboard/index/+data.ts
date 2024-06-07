@@ -1,4 +1,5 @@
 // https://vike.dev/data
+
 export { data };
 export type Data = Awaited<ReturnType<typeof data>>;
 

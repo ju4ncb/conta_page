@@ -509,6 +509,7 @@ input:-webkit-autofill:active {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  background: lighten($color1, 5%);
 }
 
 .sidebar-option {
