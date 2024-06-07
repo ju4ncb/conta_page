@@ -4,7 +4,7 @@ export { onRenderHtml };
 import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
-import logoUrl from "./logo.svg";
+import logoUrl from "./images/logo.png";
 import type { OnRenderHtmlAsync } from "vike/types";
 import { getPageTitle } from "./getPageTitle";
 
