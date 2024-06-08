@@ -93,7 +93,7 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
             [
               {
                 hideChar: false,
-                maxChar: 20,
+                maxChar: 30,
                 minChar: 0,
                 required: true,
                 desc: "Título (*) ",
@@ -101,7 +101,7 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
               },
               {
                 hideChar: false,
-                maxChar: 20,
+                maxChar: 10,
                 minChar: 0,
                 required: true,
                 desc: "Dinero inicial (*) ",
@@ -109,7 +109,7 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
               },
               {
                 hideChar: false,
-                maxChar: 100,
+                maxChar: 200,
                 minChar: 0,
                 required: false,
                 desc: "Descripcion",

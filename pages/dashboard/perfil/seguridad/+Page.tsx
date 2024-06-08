@@ -216,6 +216,43 @@ function Page() {
           <p style={{ color: "#ff6969" }}>{errMessage}</p>
         </div>
       </main>
+      {modalActive && (
+        <main className="modal-container">
+          <main className="modal">
+            <p>¿Seguro que quieres eliminar tu cuenta?</p>
+            <button
+              className="buttonModal"
+              onClick={async () => {
+                try {
+                  const respuesta = await fetch("/delete-table", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      tabla: "Usuarios",
+                      condicion: "id_us = " + usuario.id_us,
+                    }),
+                  });
+                  const resultado = await respuesta.text();
+                  console.log(resultado);
+                  localStorage.removeItem("user");
+                  window.location.href = "/";
+
+                  // Actualiza el estado o realiza acciones con los resultados
+                } catch (error) {
+                  console.error("Error al eliminar la cuenta:", error);
+                }
+              }}
+            >
+              Eliminar
+            </button>
+            <button className="buttonModal" onClick={toggleModal}>
+              Cancelar
+            </button>
+          </main>
+        </main>
+      )}
     </DashboardLayout>
   );
 }
