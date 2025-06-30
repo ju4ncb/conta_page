@@ -1,5 +1,4 @@
 node_modules/
 dist/
 server/dbConfig.ts
-package-lock.json
-package.json
+.env

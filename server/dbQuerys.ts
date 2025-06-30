@@ -1,8 +1,18 @@
 import express from "express";
-import dbConfig from "./dbConfig.js";
 import mysql from "mysql2/promise";
+import dotenv from "dotenv";
 
 // db connection
+dotenv.config();
+
+const dbConfig = {
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  port: Number(process.env.DB_PORT),
+  password: process.env.DB_PASSWORD,
+};
+
 const pool = mysql.createPool(dbConfig);
 
 type Movimiento = {
