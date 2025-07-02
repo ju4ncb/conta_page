@@ -6,7 +6,6 @@ import icon3 from "../../renderer/images/icon3.png";
 import dinero from "../../renderer/images/dinero.jpg";
 import c2 from "../../renderer/images/c2.jpg";
 import Footer from "../../components/Footer";
-import tablet from "../../renderer/images/tablet.jpg";
 import seguridad from "../../renderer/images/seguridad.jpg";
 
 export { Page };
@@ -97,7 +96,7 @@ function Conta() {
             Nos tomamos muy en serio la seguridad de tu información. Nuestra app
             utiliza encriptación avanzada para proteger tus datos personales y
             financieros. Puedes estar tranquilo sabiendo que tus datos están
-            seguros con nosotros.
+            seguros con nosotros.
           </ContaBox>
         </div>
       </div>
@@ -135,7 +134,6 @@ function Services() {
 
           <Service icon={icon3}>Herramientas para ti</Service>
         </div>
-
         <p>
           Organiza tu dinero mediante nuestro sistema de organización por
           bolisillos, manten al pendiente cada uno de tus gastos y administra
@@ -175,12 +173,10 @@ function General() {
             Iniciar sesión
           </a>
         </div>
-
         <div className="general-2"></div>
       </section>
       <section className="general">
-        <div className="general-3"></div>
-
+        <div className="general-3" />
         <div className="general-1">
           <h2>Conviertete en usuario Premium! </h2>
           <p>Pronto habilitaremos esta opcion</p>

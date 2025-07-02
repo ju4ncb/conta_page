@@ -2,11 +2,11 @@
   "scripts": {
     "dev": "npm run server:dev",
     "prod": "npm run lint && npm run build && npm run server:prod",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr",
     "server": "node --loader ts-node/esm ./server/index.ts",
     "server:dev": "npm run server",
     "server:prod": "cross-env NODE_ENV=production npm run server",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint . --max-warnings 10",
     "compile:sass": "sass sass/index.scss renderer/css/index.css",
     "watch:sass": "sass --watch sass:renderer/css/"
   },

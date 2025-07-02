@@ -16,7 +16,7 @@ export const SideBar = ({
             let href = window.location.href;
             let len = href.length - 1;
             while (len >= 0) {
-              let element = href.charAt(len - 1);
+              const element = href.charAt(len - 1);
               href = href.slice(0, len - 1);
               if (element == "/") {
                 break;

@@ -16,7 +16,7 @@ function Page() {
 
   async function handleSubmit(din: string) {
     try {
-      let dinero = Number(din);
+      const dinero = Number(din);
       const respuesta = await fetch("/update-bolsillo", {
         method: "POST",
         headers: {
@@ -106,7 +106,7 @@ function Page() {
                 }),
               })
                 .then((response) => response.text())
-                .then((response) => {
+                .then(() => {
                   console.log("id_bo = " + bolsillo.id_bo);
                 });
               fetch("/delete-table", {
@@ -120,7 +120,7 @@ function Page() {
                 }),
               })
                 .then((response) => response.text())
-                .then((response) => {
+                .then(() => {
                   console.log("id_bo = " + bolsillo.id_bo);
                 });
               localStorage.removeItem("bolsillo");

@@ -13,7 +13,7 @@ import { Bolsillo } from "../types";
 export default Page;
 
 function Page() {
-  const [usuario, setUsuario] = useState({} as Usuario);
+  const [, setUsuario] = useState({} as Usuario);
   const [bolsillos, setBolsillos] = useState([] as Bolsillo[]);
 
   async function fetchBolsillos() {

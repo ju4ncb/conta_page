@@ -56,7 +56,7 @@ export const Form = ({
               { desc, name, maxChar, minChar, hideChar, required } as FormInput
             }
             onChangeInput={(n) => {
-              let tempArray = inputs;
+              const tempArray = inputs;
               tempArray[index] = n;
               setInputs(tempArray);
             }}

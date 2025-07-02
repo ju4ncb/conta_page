@@ -11,7 +11,7 @@ export const Bolsillos = ({ children }: { children: React.ReactNode }) => {
     if (userJson != null) {
       const user = JSON.parse(userJson) as Usuario;
       try {
-        let dinero = din as unknown as number;
+        const dinero = din as unknown as number;
         const respuesta = await fetch("/insert-table", {
           method: "POST",
           headers: {

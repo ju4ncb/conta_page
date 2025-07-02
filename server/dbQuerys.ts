@@ -75,7 +75,7 @@ export const insertMovimiento = async (
   res: express.Response
 ) => {
   try {
-    let connection = await pool.getConnection();
+    const connection = await pool.getConnection();
     const selQuery = `
       SELECT * FROM Bolsillos WHERE nombre = "${nombre}"
     `;
@@ -105,19 +105,19 @@ export const updateBolsillo = async (
   res: express.Response
 ) => {
   try {
-    let connection = await pool.getConnection();
+    const connection = await pool.getConnection();
     const selQuery = `
       SELECT * FROM Bolsillos WHERE id_bo = "${id_bo}"
     `;
     const [selRows] = await connection.execute(selQuery);
     const row = selRows as Bolsillo[];
     connection.release(); // Release the connection
-    let dineroSumado = row[0].dinero + Number(dinero);
+    const dineroSumado = row[0].dinero + Number(dinero);
     console.log(dineroSumado);
     const updQuery = `
       UPDATE Bolsillos SET dinero = ${dineroSumado + ""} WHERE id_bo = ${id_bo}
     `;
-    const [_] = await connection.execute(updQuery);
+    await connection.execute(updQuery);
     connection.release(); // Release the connection
     const query = `
       INSERT INTO Movimientos (id_bo, monto)

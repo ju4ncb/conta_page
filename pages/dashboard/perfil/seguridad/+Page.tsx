@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useData } from "../../../../renderer/useData";
 import { Data } from "./+data";
 import DashboardLayout from "../../../../components/DashboardLayout";
