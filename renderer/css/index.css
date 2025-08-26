@@ -59,7 +59,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #3b495f inset;
+  -webkit-box-shadow: 0 0 0 30px rgb(59.4230769231, 73.2884615385, 95.0769230769) inset;
   /* You can set any color you prefer here */
   -webkit-text-fill-color: #00bf63 !important;
   font-family: monospace !important;
@@ -119,7 +119,7 @@ input:-webkit-autofill:active {
 .btn-1 {
   display: inline-block;
   padding: 11px 35px;
-  background-color: #00733b;
+  background-color: rgb(0, 114.5, 59.3481675393);
   border-radius: 10px;
   transition: background-color 0.2s ease;
   color: white;
@@ -127,7 +127,7 @@ input:-webkit-autofill:active {
 }
 
 .btn-1:hover {
-  background-color: #00592e;
+  background-color: rgb(0, 89, 46.1308900524);
 }
 
 .nav_home {
@@ -294,7 +294,7 @@ input:-webkit-autofill:active {
   color: #1e2530;
 }
 .general-1 .btn-1:hover {
-  background-color: #26ff96;
+  background-color: rgb(38, 255, 150.4764397906);
 }
 
 .general-2 {
@@ -348,6 +348,11 @@ input:-webkit-autofill:active {
   list-style: none;
   border-left: solid white 3px;
   display: flex;
+}
+
+.nav__items a {
+  text-decoration: underline;
+  color: white;
 }
 
 .imgfoo {
@@ -410,7 +415,7 @@ input:-webkit-autofill:active {
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  background: rgba(20, 25, 32, 0.96);
+  background: rgba(20.1923076923, 24.9038461538, 32.3076923077, 0.96);
   padding: 50px;
 }
 .auth-form label {
@@ -436,10 +441,10 @@ input:-webkit-autofill:active {
   transition: background-color 0.2s ease-in-out;
 }
 .auth-form .button_space button:hover {
-  background-color: #0a0d11;
+  background-color: rgb(10.3846153846, 12.8076923077, 16.6153846154);
 }
 .auth-form .err {
-  color: #ff8080;
+  color: rgb(255, 127.5, 127.5);
 }
 
 .fixed {
@@ -465,7 +470,7 @@ input:-webkit-autofill:active {
 }
 
 .home_button:hover {
-  color: #8cffc8;
+  color: rgb(140, 255, 199.6073298429);
   transform: translate(-2px, -2px);
   font-size: 44px;
 }
@@ -477,7 +482,7 @@ input:-webkit-autofill:active {
 }
 
 .dash-content {
-  background: #283140;
+  background: rgb(39.8076923077, 49.0961538462, 63.6923076923);
   flex: 5;
   display: flex;
   justify-content: center;
@@ -502,7 +507,7 @@ input:-webkit-autofill:active {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background: #283140;
+  background: rgb(39.8076923077, 49.0961538462, 63.6923076923);
 }
 
 .sidebar-option {
@@ -512,7 +517,7 @@ input:-webkit-autofill:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #283140;
+  background: rgb(39.8076923077, 49.0961538462, 63.6923076923);
   transition: background-color 0.2s ease;
   gap: 3px;
 }
@@ -522,7 +527,7 @@ input:-webkit-autofill:active {
 }
 
 .sidebar-option:hover {
-  background: #323d4f;
+  background: rgb(49.6153846154, 61.1923076923, 79.3846153846);
 }
 
 .sidebar-logo {
@@ -644,7 +649,7 @@ input:-webkit-autofill:active {
 }
 
 .bolsillo:hover {
-  background-color: #008c49;
+  background-color: rgb(0, 140, 72.5654450262);
 }
 
 .bolsillo-extendido {
@@ -653,7 +658,7 @@ input:-webkit-autofill:active {
   flex-direction: column;
   width: 70%;
   max-height: 90%;
-  background-color: #45556f;
+  background-color: rgb(69.2307692308, 85.3846153846, 110.7692307692);
   border-radius: 20px;
 }
 .bolsillo-extendido .titulo {
@@ -661,7 +666,7 @@ input:-webkit-autofill:active {
   text-align: center;
 }
 .bolsillo-extendido .titulo h1 {
-  color: #364256;
+  color: rgb(53.5384615385, 66.0307692308, 85.6615384615);
   font-size: 30px;
 }
 .bolsillo-extendido .contenido {
@@ -670,33 +675,33 @@ input:-webkit-autofill:active {
   gap: 5px;
 }
 .bolsillo-extendido .contenido .descripcion {
-  background-color: #364256;
+  background-color: rgb(53.5384615385, 66.0307692308, 85.6615384615);
 }
 .bolsillo-extendido .contenido .descripcion p {
   margin: 20px;
   font-size: 20px;
 }
 .bolsillo-extendido .contenido .balance {
-  background-color: #364256;
+  background-color: rgb(53.5384615385, 66.0307692308, 85.6615384615);
 }
 .bolsillo-extendido .contenido .balance p {
   margin: 20px;
   font-size: 25px;
 }
 .bolsillo-extendido .contenido .movimientos {
-  background-color: #364256;
+  background-color: rgb(53.5384615385, 66.0307692308, 85.6615384615);
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 .bolsillo-extendido .contenido .movimientos p {
-  background-color: #323d4f;
+  background-color: rgb(49.6153846154, 61.1923076923, 79.3846153846);
   margin: 0px;
   padding: 10px;
   font-size: 25px;
 }
 .bolsillo-extendido .contenido .movimientos h3 {
-  background-color: #415168;
+  background-color: rgb(65.3076923077, 80.5461538462, 104.4923076923);
   text-align: center;
   margin: 0px;
   font-size: 30px;

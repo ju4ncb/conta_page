@@ -1,6 +1,7 @@
 import express from "express";
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
+import { VercelResponse } from "@vercel/node";
 
 // db connection
 dotenv.config();
@@ -35,7 +36,7 @@ export const insertQuery = async (
   tableName: string,
   columns: string[],
   values: string[],
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   if (columns.length === 0 || values.length === 0) {
     res.status(200).send("Can't insert nothing on a table");
@@ -72,7 +73,7 @@ export const insertQuery = async (
 export const insertMovimiento = async (
   nombre: string,
   dinero: string,
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   try {
     const connection = await pool.getConnection();
@@ -102,7 +103,7 @@ export const insertMovimiento = async (
 export const updateBolsillo = async (
   id_bo: string,
   dinero: string,
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   try {
     const connection = await pool.getConnection();
@@ -139,7 +140,7 @@ export const updateUsuario = async (
   id_us: string,
   valor: string,
   columna: string,
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   try {
     const connection = await pool.getConnection();
@@ -162,7 +163,7 @@ export const selectQuery = async (
   tableName: string,
   columns: string,
   condition: string,
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   try {
     const connection = await pool.getConnection();
@@ -196,7 +197,7 @@ export const selectQuery = async (
 export const deleteQuery = async (
   tableName: string,
   condition: string,
-  res: express.Response
+  res: express.Response | VercelResponse
 ) => {
   try {
     const connection = await pool.getConnection();

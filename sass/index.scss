@@ -356,6 +356,13 @@ input:-webkit-autofill:active {
   display: flex;
 }
 
+.nav__items {
+  a {
+    text-decoration: underline;
+    color: white;
+  }
+}
+
 .imgfoo {
   display: flex;
   justify-content: flex-end;
