@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/ssr.ts": {
-      "includeFiles": ["dist/**", "server/**"]
+      "includeFiles": "dist/**, server/**"
     }
   },
   "routes": [{ "src": "/.*", "dest": "api/ssr.ts" }]
