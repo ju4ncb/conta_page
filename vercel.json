@@ -1,9 +1,9 @@
 {
   "version": 2,
   "functions": {
-    "serverless.ts": {
-      "includeFiles": "dist/**"
+    "api/ssr.ts": {
+      "includeFiles": ["dist/**", "server/**"]
     }
   },
-  "routes": [{ "src": "/.*", "dest": "serverless.ts" }]
+  "routes": [{ "src": "/.*", "dest": "api/ssr.ts" }]
 }
