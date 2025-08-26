@@ -3,6 +3,9 @@
   "functions": {
     "api/ssr.ts": {
       "includeFiles": "dist/**, server/**"
+    },
+    "server/render.ts": {
+      "includeFiles": "server/**"
     }
   },
   "routes": [{ "src": "/.*", "dest": "api/ssr.ts" }]
