@@ -33,6 +33,9 @@ function Page() {
       });
       const resultado = await respuesta.json();
 
+      if (resultado.resultados === undefined) {
+        setErrMessage("Problema del servidor");
+      }
       if (resultado.resultados.length == 0) {
         setErrMessage("Usuario no existe");
       } else if (pas != resultado.resultados[0].contrasena) {

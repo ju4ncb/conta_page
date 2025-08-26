@@ -39,10 +39,10 @@ export const insertQuery = async (
   res: express.Response | VercelResponse
 ) => {
   if (columns.length === 0 || values.length === 0) {
-    res.status(200).send("Can't insert nothing on a table");
+    res.status(400).send("Can't insert nothing on a table");
     return;
   } else if (columns.length != values.length) {
-    res.status(200).send("The size of columns must match the size of values");
+    res.status(400).send("The size of columns must match the size of values");
     return;
   }
   let columnsQuery = columns[0];
@@ -64,10 +64,10 @@ export const insertQuery = async (
     connection.release(); // Release the connection
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
-  res.status(200).send("Values inserted");
+  res.status(200).send("Valores insertados.");
 };
 
 export const insertMovimiento = async (
@@ -94,7 +94,7 @@ export const insertMovimiento = async (
     connection.release(); // Release the connection
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
   res.status(200).send("Values inserted");
@@ -130,7 +130,7 @@ export const updateBolsillo = async (
     connection.release(); // Release the connection
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
   res.status(200).send("Values updated");
@@ -153,7 +153,7 @@ export const updateUsuario = async (
     connection.release(); // Release the connection
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
   res.status(200).send("Values updated");
@@ -189,7 +189,7 @@ export const selectQuery = async (
     res.json({ resultados: rows });
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
 };
@@ -219,7 +219,7 @@ export const deleteQuery = async (
     res.status(200).send("Rows deleted succesfully");
   } catch (error) {
     console.log(error);
-    res.status(200).send(error);
+    res.status(500).send("Error de servidor.");
     return;
   }
 };

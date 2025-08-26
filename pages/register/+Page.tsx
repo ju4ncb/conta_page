@@ -39,7 +39,6 @@ function Page() {
         }),
       });
       const resultado = await respuesta.text();
-
       if (resultado != "Values inserted") {
         setErrMessage(resultado);
       } else {
