@@ -67,7 +67,7 @@ export const insertQuery = async (
     res.status(500).send("Error de servidor.");
     return;
   }
-  res.status(200).send("Valores insertados.");
+  res.status(200).send("Values inserted");
 };
 
 export const insertMovimiento = async (
@@ -78,7 +78,7 @@ export const insertMovimiento = async (
   try {
     const connection = await pool.getConnection();
     const selQuery = `
-      SELECT * FROM Bolsillos WHERE nombre = "${nombre}"
+      SELECT * FROM Bolsillos WHERE nombre = '${nombre}'
     `;
     const [selRows] = await connection.execute(selQuery);
     const row = selRows as Movimiento[];
@@ -108,7 +108,7 @@ export const updateBolsillo = async (
   try {
     const connection = await pool.getConnection();
     const selQuery = `
-      SELECT * FROM Bolsillos WHERE id_bo = "${id_bo}"
+      SELECT * FROM Bolsillos WHERE id_bo = '${id_bo}'
     `;
     const [selRows] = await connection.execute(selQuery);
     const row = selRows as Bolsillo[];

@@ -27,15 +27,17 @@ function Page() {
   ) {
     try {
       console.log(us);
-      const respuesta = await fetch("/insert-table", {
+      const respuesta = await fetch("/insert-usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          tabla: "Usuarios",
-          columnas: ["username", "contrasena", "correo", "nombre", "apellido"],
-          values: [us, pas, cor, nm, ap],
+          us,
+          pas,
+          cor,
+          nm,
+          ap,
         }),
       });
       const resultado = await respuesta.text();

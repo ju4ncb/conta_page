@@ -21,6 +21,33 @@ export async function handleRequest(
       const { id_bo, dinero } = req.body;
       return updateBolsillo(id_bo, dinero, res);
     }
+    if (req.url === "/get-usuario") {
+      const { usuario } = req.body;
+      const tabla = "Usuarios";
+      const columnas = "nombre, apellido, correo, username, contrasena, id_us";
+      const condicion = `username = '${usuario}'`;
+      return selectQuery(tabla, columnas, condicion, res);
+    }
+    if (req.url === "/get-dinero") {
+      const { idUsuario } = req.body;
+      const tabla = "Bolsillos";
+      const columnas = "dinero";
+      const condicion = "id_us = " + idUsuario;
+      return selectQuery(tabla, columnas, condicion, res);
+    }
+    if (req.url === "/insert-usuario") {
+      const { us, pas, con, nm, ap } = req.body;
+      const tabla = "Bolsillos";
+      const columnas = [
+        "username",
+        "contrasena",
+        "correo",
+        "nombre",
+        "apellido",
+      ];
+      const values = [us, pas, con, nm, ap];
+      return insertQuery(tabla, columnas, values, res);
+    }
     if (req.url === "/update-usuario") {
       const { id_us, valor, columna } = req.body;
       return updateUsuario(id_us, valor, columna, res);

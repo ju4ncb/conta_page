@@ -19,15 +19,13 @@ function Page() {
     const userJson = localStorage.getItem("user");
     if (userJson != null) {
       try {
-        const respuesta = await fetch("/get-table", {
+        const respuesta = await fetch("/get-dinero", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            tabla: "Bolsillos",
-            columnas: "dinero",
-            condicion: "id_us = " + JSON.parse(userJson).id_us,
+            idUsuario: JSON.parse(userJson).id_us,
           }),
         });
         const resultado = await respuesta.json();

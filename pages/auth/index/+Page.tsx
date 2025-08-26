@@ -20,15 +20,13 @@ function Page() {
   async function handleSubmit(us: string, pas: string) {
     try {
       console.log(us);
-      const respuesta = await fetch("/get-table", {
+      const respuesta = await fetch("/get-usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          tabla: "Usuarios",
-          columnas: "nombre, apellido, correo, username, contrasena, id_us",
-          condicion: 'username = "' + us + '"',
+          usuario: us,
         }),
       });
       const resultado = await respuesta.json();
