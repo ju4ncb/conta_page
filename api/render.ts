@@ -22,10 +22,10 @@ export async function handleRequest(
       return updateBolsillo(id_bo, dinero, res);
     }
     if (req.url === "/get-usuario") {
-      const { usuario } = req.body;
+      const { usuario, contrasena } = req.body;
       const tabla = "Usuarios";
       const columnas = "nombre, apellido, correo, username, contrasena, id_us";
-      const condicion = `username = '${usuario}'`;
+      const condicion = `username = '${usuario}' AND contrasena = '${contrasena}'`;
       return selectQuery(tabla, columnas, condicion, res);
     }
     if (req.url === "/get-dinero") {

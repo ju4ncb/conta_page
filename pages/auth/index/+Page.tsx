@@ -27,6 +27,7 @@ function Page() {
         },
         body: JSON.stringify({
           usuario: us,
+          contrasena: pas,
         }),
       });
       const resultado = await respuesta.json();
@@ -35,9 +36,7 @@ function Page() {
         setErrMessage("Problema del servidor");
       }
       if (resultado.resultados.length == 0) {
-        setErrMessage("Usuario no existe");
-      } else if (pas != resultado.resultados[0].contrasena) {
-        setErrMessage("Intente de nuevo");
+        setErrMessage("Usuario y/o contraseña incorrectos.");
       } else {
         localStorage.setItem("user", JSON.stringify(resultado.resultados[0]));
         console.log(localStorage.getItem("user"));
