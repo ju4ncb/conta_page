@@ -1,6 +1,6 @@
 import express from "express";
 import compression from "compression";
-import { handleRequest } from "./render.js";
+import { handleRequest } from "../api/render.js";
 
 startServer();
 
