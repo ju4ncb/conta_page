@@ -8,5 +8,8 @@
       "includeFiles": "server/**"
     }
   },
-  "routes": [{ "src": "/.*", "dest": "api/ssr.ts" }]
+  "routes": [
+    { "src": "/.*", "dest": "api/ssr.ts" },
+    { "src": "/assets/(.*)", "dest": "dist/client/assets/$1" }
+  ]
 }
