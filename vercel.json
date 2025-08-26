@@ -9,7 +9,7 @@
     }
   },
   "routes": [
-    { "src": "/.*", "dest": "api/ssr.ts" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" }
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/.*", "dest": "api/ssr.ts" }
   ]
 }
