@@ -20,7 +20,7 @@ CREATE TABLE Usuarios(
     username VARCHAR(20) NOT NULL,
     nombre VARCHAR(50),
     apellido VARCHAR(50),
-    contrasena VARCHAR(20) NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     CONSTRAINT Usuarios_PK PRIMARY KEY(id_us),
     CONSTRAINT Usuarios_UN UNIQUE(username),
@@ -49,8 +49,6 @@ CREATE TABLE Movimientos(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO Usuarios (username, contrasena, correo, nombre, apellido) VALUES ('zent', 'lamalapadonaldo', 'juan@mail.com', 'Juan', 'Caballero');
-
-SELECT * FROM Usuarios;
 
 INSERT INTO Bolsillos (id_us, dinero, nombre) VALUES(1, 3000.1, 'Billar');
 

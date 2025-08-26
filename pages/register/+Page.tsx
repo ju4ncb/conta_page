@@ -21,12 +21,11 @@ function Page() {
   async function handleSubmit(
     us: string,
     pas: string,
-    cor: string,
+    con: string,
     nm: string,
     ap: string
   ) {
     try {
-      console.log(us);
       const respuesta = await fetch("/insert-usuario", {
         method: "POST",
         headers: {
@@ -35,7 +34,7 @@ function Page() {
         body: JSON.stringify({
           us,
           pas,
-          cor,
+          con,
           nm,
           ap,
         }),
