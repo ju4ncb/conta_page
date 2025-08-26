@@ -4,7 +4,7 @@
     "api/ssr.ts": {
       "includeFiles": "dist/**, server/**"
     },
-    "server/render.ts": {
+    "api/render.ts": {
       "includeFiles": "server/**"
     }
   },
