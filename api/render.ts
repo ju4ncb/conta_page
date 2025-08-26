@@ -9,7 +9,7 @@ import {
   selectQuery,
   updateBolsillo,
   updateUsuario,
-} from "./dbQuerys";
+} from "./dbQuerys.js";
 
 export async function handleRequest(
   req: (IncomingMessage & express.Request) | VercelRequest,
