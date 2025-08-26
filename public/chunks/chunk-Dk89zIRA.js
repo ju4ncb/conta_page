@@ -1,0 +1,1 @@
+import{j as s}from"./chunk-CdC7BqoH.js";const e="/assets/static/login.xK5dSsfK.jpg",i=()=>s.jsx("u",{className:"home_button bi bi-house-fill",onClick:o=>{o.preventDefault(),window.location.href="/"}});export{i as H,e as l};
