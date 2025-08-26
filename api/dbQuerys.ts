@@ -145,7 +145,7 @@ export const updateUsuario = async (
   try {
     const connection = await pool.getConnection();
     const query = `
-      UPDATE Usuarios SET ${columna} = "${valor}" WHERE id_us = ${id_us}
+      UPDATE Usuarios SET ${columna} = '${valor}' WHERE id_us = ${id_us}
     `;
     const [rows] = await connection.execute(query);
     console.log("New row updated:", rows);

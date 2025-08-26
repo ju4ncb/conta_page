@@ -59,5 +59,3 @@ SELECT U.username, B.dinero, B.id_bo FROM Bolsillos B INNER JOIN Usuarios U ON B
 INSERT INTO Movimientos (id_bo, monto) VALUES(1, 500);
 
 SELECT * FROM Movimientos;
-
-
