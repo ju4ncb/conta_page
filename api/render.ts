@@ -37,7 +37,7 @@ export async function handleRequest(
     }
     if (req.url === "/insert-usuario") {
       const { us, pas, con, nm, ap } = req.body;
-      const tabla = "Bolsillos";
+      const tabla = "Usuarios";
       const columnas = [
         "username",
         "contrasena",
